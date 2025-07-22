@@ -24,18 +24,22 @@ void main() {
 
   test('returns sum of two comma-separated numbers with risky new line', () {
     final calculator = StringCalculator();
-    expect(calculator.add('1\n2,3'), 3);
+    expect(calculator.add('1\n2,3'), 6);
   });
 
   test('returns sum of two comma-separated numbers negative', () {
     final calculator = StringCalculator();
     expect(calculator.add('1, -2, 3'), 2);
   });
-  
 
-  test('returns sum of two comma-separated numbers where - is used to separate numbers', () {
+  test('returns sum of two custom separated numbers ', () {
     final calculator = StringCalculator();
-    expect(calculator.add('1, 1-2, 3'), 2);
+    expect(calculator.add('//;\n1;2'), 3);
+  });
+
+  test('returns sum of two custom-separated numbers where - is used to separate numbers', () {
+    final calculator = StringCalculator();
+    expect(calculator.add('//;\n1;-2'), -1);
   });
   
 }
