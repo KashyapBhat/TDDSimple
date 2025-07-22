@@ -1,0 +1,7 @@
+.dart_tool/
+.packages
+.pub/
+build/
+.dart_tool/**
+# Ignore output from the 'loc' (lines of code) tool
+loc/
