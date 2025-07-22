@@ -76,4 +76,28 @@ void main() {
     expect(calculator.add('//[***]\n1***2***3'), 6);
   });
 
+  test('returns 0 if all numbers > 1000', () {
+    final calculator = StringCalculator();
+    expect(calculator.add('1001,2000,9999'), 0);
+  });
+
+  test('throws with multiple negative numbers listed in message', () {
+    final calculator = StringCalculator();
+    expect(
+      () => calculator.add('1,-2,-3,4'),
+      throwsA(
+        predicate(
+          (e) =>
+              e is NegativeNumberException &&
+              e.negativeNumbers.contains(-2) &&
+              e.negativeNumbers.contains(-3),
+        ),
+      ),
+    );
+  });
+
+  test('handles whitespaces', () {
+    final calculator = StringCalculator();
+    expect(calculator.add(' 1 , 2 '), 3); // depending on desired behavior
+  });
 }

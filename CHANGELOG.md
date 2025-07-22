@@ -1,5 +1,9 @@
 ## 1.0.5
 
+- Some more basic tests for code review
+
+## 1.0.5
+
 - Requirement about throwing error on negative numbers with printing their list and their test cases
 - multiple custom-separated delimiters
 - ignore numbers above 1000 while sum
