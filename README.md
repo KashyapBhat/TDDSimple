@@ -32,4 +32,7 @@ pubspec.yaml
 README.md                        
 ```
 
-Link: https://osherove.com/tdd-kata-1
+## Test Cases Run
+<img width="1394" height="755" alt="image" src="https://github.com/user-attachments/assets/33cd8707-5f2d-402d-862d-e175857cc0d2" />
+
+## TDD Kata: https://osherove.com/tdd-kata-1
