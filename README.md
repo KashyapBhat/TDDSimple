@@ -15,14 +15,21 @@ add(String? numbers) function That takes a string of numbers separated by delimi
 - Ignores numbers greater than 1000
 - Supports multi-character custom delimiters like //[***]\n1***2***3
 
+---
+
 ## Project Structure
+
+```text
 lib/
-  └── string_calculator.dart  
-  └── exception/
-       └── negative_number_exception.dart  
+├── string_calculator.dart    
+└── exception/
+    └── negative_number_exception.dart   
+
 test/
-  └── string_calculator_test.dart 
-pubspec.yaml
-README.md
+└── string_calculator_test.dart      
+
+pubspec.yaml                          
+README.md                        
+```
 
 Link: https://osherove.com/tdd-kata-1
