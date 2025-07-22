@@ -1,3 +1,4 @@
+import 'package:simple_tdd/exception/negative_number_exception.dart';
 import 'package:simple_tdd/simple_tdd.dart';
 import 'package:test/test.dart';
 
@@ -29,7 +30,17 @@ void main() {
 
   test('returns sum of two comma-separated numbers negative', () {
     final calculator = StringCalculator();
-    expect(calculator.add('1, -2, 3'), 2);
+    expect(
+      () => calculator.add('1, -2, 3'),
+      throwsA(
+        predicate(
+          (e) =>
+              e is NegativeNumberException &&
+              e.negativeNumbers.length == 1 &&
+              e.negativeNumbers.contains(-2),
+        ),
+      ),
+    );
   });
 
   test('returns sum of two custom separated numbers ', () {
@@ -37,9 +48,32 @@ void main() {
     expect(calculator.add('//;\n1;2'), 3);
   });
 
-  test('returns sum of two custom-separated numbers where - is used to separate numbers', () {
+  test(
+    'returns sum of two custom-separated numbers where - is used to separate numbers',
+    () {
+      final calculator = StringCalculator();
+      expect(
+        () => calculator.add('//;\n1;-2'),
+        throwsA(
+          predicate(
+            (e) =>
+                e is NegativeNumberException &&
+                e.negativeNumbers.length == 1 &&
+                e.negativeNumbers.contains(-2),
+          ),
+        ),
+      );
+    },
+  );
+
+  test('Numbers bigger than 1000 should be ignored', () {
     final calculator = StringCalculator();
-    expect(calculator.add('//;\n1;-2'), -1);
+    expect(calculator.add('1,2000,3'), 4);
   });
-  
+
+  test('returns sum of multiple custom-separated numbers', () {
+    final calculator = StringCalculator();
+    expect(calculator.add('//[***]\n1***2***3'), 6);
+  });
+
 }

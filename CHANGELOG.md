@@ -1,3 +1,13 @@
+## 1.0.5
+
+- Requirement about throwing error on negative numbers with printing their list and their test cases
+- multiple custom-separated delimiters
+- ignore numbers above 1000 while sum
+
+## 1.0.4
+
+- Requirement about throwing error on negative numbers with printing their list
+
 ## 1.0.3
 
 - If the input starts with //, the character between // and \n is used as the custom delimiter instead of comma or newline.
